@@ -4,7 +4,7 @@
     <div class="card-header" v-if="showTitle">
       <el-icon><DataAnalysis /></el-icon>
       <span>{{ title }}</span>
-      <el-button size="mini" type="text" @click="refreshMetrics">
+      <el-button size="small" type="text" @click="refreshMetrics">
         <el-icon><Refresh /></el-icon>刷新
       </el-button>
     </div>
@@ -140,7 +140,7 @@ const emit = defineEmits<{
 // 响应式数据
 const updateTime = ref(dayjs().format('YYYY-MM-DD HH:mm:ss'))
 // 定时器
-let refreshTimer: NodeJS.Timeout | null = null
+let refreshTimer:  null = null
 
 // 核心指标数据
 const todayEvents = reactive({

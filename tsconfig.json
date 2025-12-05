@@ -7,5 +7,26 @@
     {
       "path": "./tsconfig.app.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    // 目标ES版本（根据项目需求调整，如ES2020、ESNext）
+    "target": "ES2020",
+    // 模块系统（如CommonJS、ESNext）
+    "module": "ESNext",
+    // 必须包含node类型，或设置为"all"（推荐显式指定）
+    "types": ["node"],
+    // 类型定义文件目录（默认node_modules/@types，一般无需额外配置）
+    "typeRoots": ["node_modules/@types"],
+    // 启用Node.js模块解析（前端项目如Vite/Vue/React也可开启）
+    "moduleResolution": "NodeNext" | "Node16" | "Node",
+    // 其他配置...
+  },
+  // 确保包含需要编译的文件，排除无关目录（可选）
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+  }
 }

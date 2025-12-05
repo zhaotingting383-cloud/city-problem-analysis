@@ -66,7 +66,11 @@ import * as echarts from 'echarts'
 import type { ECharts, EChartsOption } from 'echarts'
 import { Refresh } from '@element-plus/icons-vue'
 import dayjs from 'dayjs'
-
+interface typeMap {
+  traffic: string;
+  device: string;
+  environment: string;
+}
 // 定义Props
 interface Props {
   // 热力图数据格式：[经度, 纬度, 问题数量, 问题类型]
@@ -130,8 +134,8 @@ const cityConfig = {
 // 模拟热力图数据（实际项目替换为接口数据）
 const generateHeatmapData = (): [number, number, number, string][] => {
   const config = cityConfig[city.value as keyof typeof cityConfig]
-  const baseLng = config.center[0]
-  const baseLat = config.center[1]
+  const baseLng = config.center[0] | 0
+  const baseLat = config.center[1] | 0
 
   // 生成随机热力点
   const data: [number, number, number, string][] = []
@@ -188,7 +192,7 @@ const initHeatmap = () => {
     backgroundColor: 'transparent',
     tooltip: {
       trigger: 'item',
-      formatter: (params: any) => {
+      formatter: (params: typeMap) => {
         const typeMap = {
           traffic: '交通拥堵',
           device: '设备故障',

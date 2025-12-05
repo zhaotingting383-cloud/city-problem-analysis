@@ -265,7 +265,7 @@ import { ElMessage } from 'element-plus'
 import * as echarts from 'echarts'
 import { Download } from '@element-plus/icons-vue'
 import { useMainStore } from '@/store'
-import { CityProblemData } from '@/types'
+// import { CityProblemData } from '@/types'
 
 const store = useMainStore()
 const countChartRef = ref<HTMLDivElement>()
@@ -297,7 +297,8 @@ const pagination = ref({
 // 状态
 const loading = ref(false)
 const compareReport = ref('')
-const filteredData = ref<CityProblemData[]>([])
+// const filteredData = ref<CityProblemData[]>([])
+const filteredData = ref<[]>([])
 
 // 筛选后的数据
 const getFilteredData = computed(() => {
@@ -560,7 +561,8 @@ const exportCompareReport = () => {
 }
 
 // 查看详情
-const viewDetail = (row: CityProblemData) => {
+// const viewDetail = (row: CityProblemData) => {
+const viewDetail = (row: any) => {
   ElMessage.info(`查看${row.area}${row.subType}的详细信息`)
 }
 

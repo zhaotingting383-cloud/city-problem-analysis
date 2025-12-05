@@ -7,7 +7,7 @@
         <h3 class="header-title">{{ title }}</h3>
       </div>
       <div class="header-right">
-        <el-button size="mini" type="text" @click="refreshData" class="refresh-btn">
+        <el-button size="small" type="text" @click="refreshData" class="refresh-btn">
           <el-icon><Refresh /></el-icon>刷新
         </el-button>
         <el-select v-model="chartMode" size="small" @change="updateChart" class="mode-select">
@@ -97,7 +97,7 @@ const changeRate = ref(0)
 // 图表实例
 let chartInstance: ECharts | null = null
 // 定时器
-let refreshTimer: NodeJS.Timeout | null = null
+let refreshTimer: null = null
 
 // 生成贴近真实业务的7天模拟数据
 const generateRealisticData = () => {

@@ -86,11 +86,11 @@
 
           <!-- 操作按钮 -->
           <div class="event-actions" v-if="hoverIndex === index">
-            <el-button size="mini" type="primary" @click.stop="handleProcess(event)">
+            <el-button size="small" type="primary" @click.stop="handleProcess(event)">
               处理
             </el-button>
             <el-button
-              size="mini"
+              size="small"
               type="success"
               @click.stop="handleComplete(event)"
               v-if="event.status !== 'resolved'"
@@ -184,8 +184,8 @@ const completionRate = ref(0) // 完成率
 const listContainer = ref<HTMLDivElement>() // 列表容器引用
 
 // 定时器
-let refreshTimer: NodeJS.Timeout | null = null
-let statsTimer: NodeJS.Timeout | null = null
+let refreshTimer:  null = null
+let statsTimer:  null = null
 
 // 区域列表
 const areas = ['朝阳区', '海淀区', '西城区', '东城区', '丰台区', '昌平区', '顺义区']

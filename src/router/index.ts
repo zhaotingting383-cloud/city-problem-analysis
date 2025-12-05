@@ -12,7 +12,7 @@ const DailyReport = () => import('@/views/daily-report/DailyReport.vue')
 const DataFilter = () => import('@/views/data-filter/DataFilter.vue')
 
 // 路由规则
-const routes: RouteRecordRaw = [
+const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: MainLayout, // 主布局（包含侧边栏导航）

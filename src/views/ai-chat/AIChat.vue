@@ -61,7 +61,7 @@
               <div class="message-time">{{ formatTime(message.timestamp) }}</div>
               <div class="message-text" v-html="formatMessage(message.content)"></div>
               <div class="message-actions">
-                <el-button size="mini" type="text" @click="copyMessage(message.content)">
+                <el-button size="small" type="text" @click="copyMessage(message.content)">
                   <el-icon><CopyDocument /></el-icon>
                 </el-button>
               </div>
@@ -125,14 +125,14 @@ import {
   // PaperPlane,
 } from '@element-plus/icons-vue'
 import { useMainStore } from '@/store'
-import { ChatMessage } from '@/types'
+// import { ChatMessage } from '@/types'
 
 const store = useMainStore()
 const chatContentRef = ref<HTMLDivElement>()
 const inputContent = ref('')
 const loading = ref(false)
 const showTemplate = ref(false)
-const chatMessages = ref<ChatMessage[]>(store.chatMessages)
+const chatMessages = ref<[]>(store.chatMessages)
 
 // 快捷模板
 const chatTemplates = ref([

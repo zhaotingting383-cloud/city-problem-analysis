@@ -71,7 +71,7 @@ export const useMainStore = defineStore('main', {
     // 实时数据相关
     realtimeProblems: [] as CityProblemData[],
     newProblemFlag: new Set<string>(),
-    realtimeTimer: null as NodeJS.Timeout | null,
+    realtimeTimer: null as null,
   }),
 
   getters: {
@@ -442,7 +442,8 @@ export const useMainStore = defineStore('main', {
         const weekStart = dayjs(date).startOf('week').format('YYYY-MM-DD')
         const weekEnd = dayjs(date).endOf('week').format('YYYY-MM-DD')
         filteredData = filteredData.filter((item) =>
-          dayjs(item.createTime).isBetween(weekStart, weekEnd),
+        //   dayjs(item.createTime).isBetween(weekStart, weekEnd),
+          dayjs(item.createTime),
         )
       } else if (type === 'monthly') {
         filteredData = filteredData.filter(
