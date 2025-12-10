@@ -207,7 +207,7 @@ const generateChartData = () => {
     today: 1,
     week: 3,
     month: 5,
-  }[timeRange.value]
+  }[timeRange.value] || 1
 
   // 区域乘数
   const areaMultiplier = area.value === 'all' ? 1 : 0.7

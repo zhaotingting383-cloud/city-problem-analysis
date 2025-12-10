@@ -5,25 +5,25 @@ import { ElMessage } from 'element-plus'
 
 // 类型定义（若已在 src/types/index.ts 定义，可导入使用）
 export interface ChatMessage {
-  id: string
+  id: string | undefined
   role: 'user' | 'assistant'
-  content: string
+  content: string | undefined
   timestamp: number
 }
 
 export interface CityProblemData {
   id: string | number
-  area: string
-  areaCode: string
+  area: string | undefined
+  areaCode: string | undefined
   lng: number
   lat: number
   type: 'event' | 'sensor_error'
-  subType: string
+  subType: string | undefined
   priority: 'high' | 'medium' | 'low'
   status: 'pending' | 'processing' | 'resolved'
-  createTime: string
+  createTime: string | undefined
   responseTime?: number
-  deviceId?: string
+  deviceId?: string | undefined
 }
 
 export interface Pagination {
@@ -33,15 +33,15 @@ export interface Pagination {
 }
 
 export interface Warning {
-  id: string
+  id: string | undefined
   problemId: string | number
-  area: string
-  type: string
+  area: string | undefined
+  type: string | undefined
   priority: 'high' | 'medium' | 'low'
-  message: string
+  message: string | undefined
   status: 'pending' | 'processed' | 'follow_up'
-  createTime: string
-  aiSuggestion?: string
+  createTime: string | undefined
+  aiSuggestion?: string | undefined
 }
 
 export interface Statistics {
@@ -420,9 +420,9 @@ export const useMainStore = defineStore('main', {
 
     // ========== 日报生成相关 ==========
     generateDailyReport(params: {
-      date: string
+      date: string | undefined
       type: 'daily' | 'weekly' | 'monthly'
-      scope: string
+      scope: string | undefined
     }) {
       const { date, type, scope } = params
       const timeText = type === 'daily' ? '当日' : type === 'weekly' ? '本周' : '本月'

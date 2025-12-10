@@ -69,7 +69,7 @@
           </div>
 
           <div v-if="loading" class="loading-message">
-            <el-avatar icon="<Robot />"></el-avatar>
+            <!-- <el-avatar icon="<Robot />"></el-avatar> -->
             <div class="loading-content">
               <el-skeleton :rows="3" width="200px" animated />
             </div>
@@ -119,7 +119,7 @@ import {
   Delete,
   Files,
   User,
-  Robot,
+//   Robot,
   CopyDocument,
   Upload,
   // PaperPlane,
@@ -184,12 +184,12 @@ const sendMessage = async () => {
   if (!inputContent.value.trim()) return
 
   // 添加用户消息
-  const userMessage: ChatMessage = {
-    id: Date.now().toString(),
-    role: 'user',
-    content: inputContent.value,
-    timestamp: Date.now(),
-  }
+//   const userMessage: ChatMessage = {
+//     id: Date.now().toString(),
+//     role: 'user',
+//     content: inputContent.value,
+//     timestamp: Date.now(),
+//   }
 
   chatMessages.value.push(userMessage)
   const tempContent = inputContent.value

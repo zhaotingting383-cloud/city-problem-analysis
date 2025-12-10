@@ -266,7 +266,17 @@ import * as echarts from 'echarts'
 import { Download } from '@element-plus/icons-vue'
 import { useMainStore } from '@/store'
 // import { CityProblemData } from '@/types'
-
+interface ProblemDataItem {
+  id: string | number;
+  area: string;
+  type: string;
+  subType: string;
+  priority: string;
+  status: string;
+  createTime: string;
+  responseTime?: number;
+  [key: string]: any; // 允许其他属性
+}
 const store = useMainStore()
 const countChartRef = ref<HTMLDivElement>()
 const efficiencyChartRef = ref<HTMLDivElement>()
@@ -297,8 +307,7 @@ const pagination = ref({
 // 状态
 const loading = ref(false)
 const compareReport = ref('')
-// const filteredData = ref<CityProblemData[]>([])
-const filteredData = ref<[]>([])
+const filteredData = ref<ProblemDataItem[]>([])
 
 // 筛选后的数据
 const getFilteredData = computed(() => {

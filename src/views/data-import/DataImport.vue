@@ -160,7 +160,7 @@
 import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useMainStore } from '@/store'
-import { CityProblemData } from '@/types'
+import type { CityProblemData } from '@/types'
 
 const store = useMainStore()
 const loading = ref(false)

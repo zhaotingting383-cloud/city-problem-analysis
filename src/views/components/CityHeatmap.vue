@@ -134,8 +134,8 @@ const cityConfig = {
 // 模拟热力图数据（实际项目替换为接口数据）
 const generateHeatmapData = (): [number, number, number, string][] => {
   const config = cityConfig[city.value as keyof typeof cityConfig]
-  const baseLng = config.center[0] | 0
-  const baseLat = config.center[1] | 0
+  const baseLng = config.center[0] || 0
+  const baseLat = config.center[1] || 0
 
   // 生成随机热力点
   const data: [number, number, number, string][] = []

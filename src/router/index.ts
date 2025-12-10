@@ -12,12 +12,12 @@ const DailyReport = () => import('@/views/daily-report/DailyReport.vue')
 const DataFilter = () => import('@/views/data-filter/DataFilter.vue')
 
 // 路由规则
+// 显式指定每条路由记录的类型
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: MainLayout, // 主布局（包含侧边栏导航）
-    // redirect: '/dashboard', // 默认跳转到大屏
-    redirect: '/data-import', // 默认跳转到导入
+    component: MainLayout,
+    redirect: '/data-import',
     children: [
       {
         path: 'data-import',
@@ -68,7 +68,6 @@ const routes: RouteRecordRaw[] = [
     redirect: '/dashboard',
   },
 ]
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,

@@ -22,8 +22,9 @@
     // 类型定义文件目录（默认node_modules/@types，一般无需额外配置）
     "typeRoots": ["node_modules/@types"],
     // 启用Node.js模块解析（前端项目如Vite/Vue/React也可开启）
-    "moduleResolution": ["NodeNext" , "Node16" , "Node"],
+    "moduleResolution": "node",
     // 其他配置...
+     "noEmit": true, // 关键：让tsc仅做类型检查，不生成任何输出文件（包括.d.ts）
   },
   // 确保包含需要编译的文件，排除无关目录（可选）
   "include": ["src/**/*"],

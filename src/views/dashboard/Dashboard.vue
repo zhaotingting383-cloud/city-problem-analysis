@@ -29,7 +29,7 @@
               <el-option label="本月" value="month"></el-option>
             </el-select>
           </template>
-          <CityHeatmap
+          <CityHeatmap v-if="heatmapData.length > 0"
             :data="heatmapData"
             defaultCity="beijing"
             @dataChange="handleDataChange"
