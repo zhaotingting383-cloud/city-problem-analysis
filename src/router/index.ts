@@ -1,5 +1,4 @@
-import type { RouteRecordRaw } from 'vue-router' // 注意 type 关键字
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 // 懒加载各模块组件
 const MainLayout = () => import('@/views/layout/MainLayout.vue')
@@ -10,62 +9,60 @@ const WarningTrack = () => import('@/views/warning-track/WarningTrack.vue')
 const AIChat = () => import('@/views/ai-chat/AIChat.vue')
 const DailyReport = () => import('@/views/daily-report/DailyReport.vue')
 const DataFilter = () => import('@/views/data-filter/DataFilter.vue')
-
 // 路由规则
 // 显式指定每条路由记录的类型
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: MainLayout,
+    name: 'Home',
+    // component: MainLayout,
+    component: () => import('@/views/layout/MainLayout.vue'),
     redirect: '/data-import',
     children: [
       {
         path: 'data-import',
         name: 'DataImport',
-        component: DataImport,
+        // component: DataImport,
+        component: () => import('@/views/data-import/DataImport.vue'),
         meta: { title: '多源数据导入与结构化展示', icon: 'el-icon-upload' },
       },
-      {
-        path: 'ai-analysis',
-        name: 'AIAnalysis',
-        component: AIAnalysis,
-        meta: { title: 'AI智能分析与建议生成', icon: 'el-icon-s-data' },
-      },
-      {
-        path: 'dashboard',
-        name: 'Dashboard',
-        component: Dashboard,
-        meta: { title: '城市运行态势大屏', icon: 'el-icon-monitor' },
-      },
-      {
-        path: 'warning-track',
-        name: 'WarningTrack',
-        component: WarningTrack,
-        meta: { title: '智能预警与处置跟踪', icon: 'el-icon-bell' },
-      },
-      {
-        path: 'ai-chat',
-        name: 'AIChat',
-        component: AIChat,
-        meta: { title: 'AI对话助手', icon: 'el-icon-chat-dot-round' },
-      },
-      {
-        path: 'daily-report',
-        name: 'DailyReport',
-        component: DailyReport,
-        meta: { title: '自动生成处置日报', icon: 'el-icon-document' },
-      },
-      {
-        path: 'data-filter',
-        name: 'DataFilter',
-        component: DataFilter,
-        meta: { title: '多维筛选与对比', icon: 'el-icon-filter' },
-      },
+    //   {
+    //     path: 'ai-analysis',
+    //     name: 'AIAnalysis',
+    //     component: AIAnalysis,
+    //     meta: { title: 'AI智能分析与建议生成', icon: 'el-icon-s-data' },
+    //   },
+    //   {
+    //     path: 'dashboard',
+    //     name: 'Dashboard',
+    //     component: Dashboard,
+    //     meta: { title: '城市运行态势大屏', icon: 'el-icon-monitor' },
+    //   },
+    //   {
+    //     path: 'warning-track',
+    //     name: 'WarningTrack',
+    //     component: WarningTrack,
+    //     meta: { title: '智能预警与处置跟踪', icon: 'el-icon-bell' },
+    //   },
+    //   {
+    //     path: 'ai-chat',
+    //     name: 'AIChat',
+    //     component: AIChat,
+    //     meta: { title: 'AI对话助手', icon: 'el-icon-chat-dot-round' },
+    //   },
+    //   {
+    //     path: 'daily-report',
+    //     name: 'DailyReport',
+    //     component: DailyReport,
+    //     meta: { title: '自动生成处置日报', icon: 'el-icon-document' },
+    //   },
+    //   {
+    //     path: 'data-filter',
+    //     name: 'DataFilter',
+    //     component: DataFilter,
+    //     meta: { title: '多维筛选与对比', icon: 'el-icon-filter' },
+    //   },
     ],
-  },
-  {
-    path: '/:pathMatch(.*)*',
-    redirect: '/dashboard',
   },
 ]
 const router = createRouter({
